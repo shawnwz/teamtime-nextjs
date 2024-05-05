@@ -2,32 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer components {
+    /* User card */
+    .user-card {
+        @apply flex flex-col justify-between gap-4 bg-neutral-300 rounded-xl max-xs:rounded-xl max-xs:bg-neutral-300 max-xs:p-4 xs:flex-row xs:items-center;
+    }
+
+    .user-card_avatar {
+        @apply flex flex-1 items-start justify-start gap-3 xs:items-center;
+    }
+
+
+    /* Team card */
+    .team-card {
+        @apply flex flex-col justify-between gap-4 max-xs:rounded-xl max-xs:bg-neutral-300 max-xs:p-4 xs:flex-row xs:items-center bg-white border rounded border-dark-4 p-2 hover:bg-violet-600 cursor-pointer;
+    }
+
+    .team-card_logo {
+        @apply flex flex-1 items-start justify-start gap-3 xs:items-center;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
