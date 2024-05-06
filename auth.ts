@@ -6,9 +6,14 @@ import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 
 import type { NextAuthConfig } from "next-auth"
+import prisma from '@/lib/prisma';
+import {PrismaAdapter} from '@auth/prisma-adapter';
+
 
 export const config = {
   theme: { logo: "https://authjs.dev/img/logo-sm.png" },
+  session: {strategy: 'jwt'},
+  adapter: PrismaAdapter(prisma),
   providers: [
     Apple,
     GitHub,
